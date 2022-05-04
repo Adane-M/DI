@@ -1,5 +1,25 @@
+const update = require('./views/script') 
 const exp = require('express');
+const ejsLint = require('ejs-lint');
+let Parser = require('rss-parser');
+
+let parser = new Parser();
 const app = exp();
+
+const feeds = [];
+( async () => {
+
+  let feed = await parser.parseURL('https://www.thefactsite.com/feed/');
+//   let feed = await parser.parseURL('https://www.reddit.com/.rss');
+  feed.items.forEach(item => {
+      
+      console.log(item.link)
+      item.categories.forEach(catg => {
+        feeds.push(catg)
+    })
+
+  });
+})();
 
 app.set('view engine', 'ejs');
 app.use(exp.urlencoded({extended: false}));
@@ -7,34 +27,34 @@ app.use(exp.json());
 app.use(exp.static('public'));
 
 
-const items = [];
 
-app.post('/', (req, res) => {
-    const { item, amount } = req.body;
-    const newItem = {
-        item: item,
-        amount: amount
-    };
-    items.push(newItem);
-    res.send(items)
-    res.render('index', {items:items})
-    console.log(items);
-    // res.end()
+
+let lists = []
+app.get('/', (req, res) => {
+    console.log('render');
+    res.render('index', { feeds: feeds , lists});
 });
 
-app.get('/index.', (req, res) => {
-    const { item, amount } = req.body;
+app.post('/lists', (req, res) => {
+    const{name , amount} = req.body
     const newItem = {
-        item: item,
-        amount: amount
-    };
-    items.push(newItem);
-    res.json(items)
-    res.render('index', { items: items });
+        name: name ,
+         amount: amount 
+        }
+        lists.push(newItem)
+    res.send(lists)
+});
+app.get('/', (req, res) => {
+    // const{name , amount} = req.body
+    // const newItem = {
+    //     name: name ,
+    //      amount: amount 
+    //     }
+    //     lists.push(newItem)
+    // console.log('render');
+    res.render('index', lists);
+    // res.send(lists)
 });
 
-// app.get('/', (req, res) => {
-//     res.render('index',{ items: items});
-// });
 
 app.listen(3000, console.log('yahoooo!!!'))
