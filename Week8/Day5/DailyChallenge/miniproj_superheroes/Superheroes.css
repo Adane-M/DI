@@ -1,0 +1,31 @@
+.header{
+    /* height: 10vh; */
+    background-image: linear-gradient(to right, red , yellow);
+    text-align: center;
+}
+
+.wraper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
+    text-align: center;
+    background-image: linear-gradient(red, yellow, green);
+
+
+}
+img {
+    height: 200px;
+}
+
+p ,h1, h3 {
+    margin: 0px;
+}
+.wraper > div {
+    margin: 10px;
+    /* padding: 5px; */
+    /* background-color: rgb(106, 74, 136); */
+}
+
+.wraper > div:hover {
+    -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 15px 16px 6px 36px rgba(0, 0, 0, 0);
+    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 15px 16px 6px 36px rgba(0, 0, 0, 0);
+}
