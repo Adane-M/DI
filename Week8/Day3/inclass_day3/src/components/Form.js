@@ -1,13 +1,8 @@
-
-
 const Form = (props) => {
-
-
-
     return (
         <>
             <h1>Form </h1>
-            <form className="inputForm">
+            <form>
                 <input onChange={props.handleChange} name="firstName" placeholder="First Name" value={props.firstName} />
                 <br />
                 <input onChange={props.handleChange} name="lastName" placeholder="Last Name" value={props.lastName} />
@@ -34,7 +29,7 @@ const Form = (props) => {
                     <option value="Brazil">Brazil</option>
                 </select>
                 <br />
-                <label className="restrictions-title">Dietary restrictions:</label>
+                <label>Dietary restrictions:</label>
                 <br />
                 <div>
                     <input type="checkbox" name="nutsFree" onChange={props.handleChange} checked={props.nutsFree} />
@@ -46,7 +41,7 @@ const Form = (props) => {
                     <input type="checkbox" name="isVegan" onChange={props.handleChange} checked={props.isVegan} />
                     <span>Vegan</span>
                 </div>
-                <button className="submit">Submit</button>
+                <button>Submit</button>
             </form>
             <hr />
             <div>

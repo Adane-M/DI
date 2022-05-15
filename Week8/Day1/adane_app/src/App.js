@@ -1,9 +1,9 @@
 // import { render } from '@testing-library/react';
 import React from 'react';
 import './App.css';
-// import Hello from './Hello';
-import User from './User';
-import Search from './Search';
+// import Hello from './components/Hello';
+import User from './components/User';
+import Search from './components/Search';
 // import Users from './users.json';
 
 //////RENDER PAGE WITH CLASS
@@ -53,6 +53,7 @@ class App extends React.Component {
           filterUsers.map(item => {
             return (
               <User key={item.id} user={item} />
+              
             )
           })
         }

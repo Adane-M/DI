@@ -1,44 +1,39 @@
 import React from 'react';
 import './App.css';
-// import Form from './components/Form';
-import Formsubmit from './components/Formsubmit';
+import Links from './components/Links';
+import {Route, Routes, BrowserRouter} from 'react-router-dom';
+import Home from './components/Home';
+import Profile from './components/Profile';
+import Shop from './components/Shop';
+import ErrorBoundary from './components/ErrorBoundary'
 
+class App extends React.Component {
 
-
-class App extends React.Component{
-
-
-
-
-  render(){
+  render() {
     return (
-<Formsubmit/>
-
+      <div>
+        <BrowserRouter>
+          <div className="App">
+            <Links />
+            <header className="App-header">
+                <Routes>
+                  <ErrorBoundary >
+                  <Route exact path='/' element={<Home />} />
+                  <ErrorBoundary >
+                  </ErrorBoundary>
+                  <Route path='/profile' element={<Profile />} />
+                  </ErrorBoundary>
+                  <ErrorBoundary >
+                  <Route path='/shop' element={<Shop />} />
+                  </ErrorBoundary>
+                </Routes>
+            </header>
+          </div>
+        </BrowserRouter>
+      </div >
     )
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import DemoFunctionCompo from './components/DemoFunctionCompo';
 // import ClassDemoCompo from './components/ClassDemoCompo';

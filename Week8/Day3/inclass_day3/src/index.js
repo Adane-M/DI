@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Appday3xp from './Appday3xp';
-
+import Xp2 from './Xp2';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-    {/* <Appday3xp /> */}
+      {/* <App /> */}
+      <Xp2 />
   </React.StrictMode>
 );
 
