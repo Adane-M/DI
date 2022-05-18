@@ -1,13 +1,20 @@
 
+
+export const requstRobots =() => (dispatch) =>{
+    dispatch({type:'BEGIN_FETCHING_ROBOT'});
+    fetch('http://jsonplaceholder.typicode.com/users')
+    .then(res => res.json())
+    .then(data => dispatch({type: 'FETCH_SUCCESS', payload: data}))
+    .catch(err => dispatch({type:'FETCH_FAILURE' ,payload: err}))
+}
+
+
 export const displayRobots = (arr) => {
     return {
         type: 'DISPLAY_ROBOTS',
         payload:arr
     }
 }
-
-
-
 
 export const filterRobot = (text) => {
 

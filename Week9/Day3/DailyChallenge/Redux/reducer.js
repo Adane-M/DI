@@ -10,6 +10,8 @@ const initialState = {
     // transactionList: [],
     robots: [],
     searchRobot: '',
+    isFetchin:true,
+    err: ' '
 
 }
 
@@ -26,6 +28,18 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state, searchRobot: action.payload
             };
+        case 'BEGIN_FETCHING_ROBOT':
+            return {
+...state , isFetchin:true
+            };
+        case 'FETCH_SUCCESS':
+            return {
+...state , robots:action.payload , isFetching:false
+            };
+        case 'FETCH_FAILURE':
+            return {
+...state , err: action.payload , isFetchin:false
+            }
 
         // case 'DECREMENTED':
         //     return {

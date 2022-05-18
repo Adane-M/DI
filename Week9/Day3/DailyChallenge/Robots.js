@@ -1,38 +1,33 @@
 import React from 'react';
 import User from './User';
-import { filterRobot, displayRobots } from '../../Redux/action';
+import { filterRobot ,requstRobots} from '../../Redux/action';
 import { connect } from 'react-redux';
 
 class Robots extends React.Component {
 
     componentDidMount() {
-        fetch('http://jsonplaceholder.typicode.com/users')
-            .then(res => res.json())
-            .then(data => {
-                this.props.getRobots(data);
-            })
-            .catch(err => console.log(err))
+        this.props.fetchRobots();
     }
 
     render() {
-        const { searchRobot, search, robotsarr } = this.props;
+        const { searchRobot, search, robotsarr,isFetching} = this.props;
 
         const filterUsers = robotsarr.filter(item => {
             return item.name.toLowerCase().includes(search.toLowerCase())
         })
 
-        if (!filterUsers) {
+        if (isFetching) {
             return (
-                <div style={{ backgroundColor: 'lightcoral' }}>
+                <div style={{ backgroundColor: 'black' }}>
                     <h1>ROBOTS</h1>
-                    <h3>loading </h3>
+                    <h3 style={{color:'red'}}>loading </h3>
                 </div>
             )
         } else {
             return (
                 <div style={{ backgroundColor: 'lightgrey' }}>
                     <h1> ROBOTS</h1>
-                    find robo frind: <input type='text' onChange={searchRobot}></input>
+                    find robo frinde: <input type='text' onChange={searchRobot}></input>
                     {
                         filterUsers.map(item => {
                             return (
@@ -50,13 +45,16 @@ class Robots extends React.Component {
 const mapStateToProps = (state) => {
     return {
         search: state.searchRobot,
-        robotsarr: state.robots
+        robotsarr: state.robots,
+        error:state.err,
+        isFetching: state.isFetching
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
         searchRobot: (e) => dispatch(filterRobot(e.target.value)),
-        getRobots: (arr) => dispatch(displayRobots(arr))
+        // getRobots: (arr) => dispatch(displayRobots(arr)),
+        fetchRobots:()=> dispatch(requstRobots())
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Robots);

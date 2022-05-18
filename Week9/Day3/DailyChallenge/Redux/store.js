@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware } from "redux";
 import { reducer } from "./reducer";
+import thunkMiddleware from 'redux-thunk';
 
 const LogAction = (store) => {
     return next => action => {
@@ -12,4 +13,4 @@ const LogAction = (store) => {
 
 
 // we invoke and import the function to create the store.
-export const store = createStore(reducer, applyMiddleware(LogAction));
+export const store = createStore(reducer, applyMiddleware(thunkMiddleware,LogAction));
