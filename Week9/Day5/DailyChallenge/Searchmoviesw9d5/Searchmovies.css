@@ -1,0 +1,48 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right bottom, gold, black);
+    font-family: "Dosis";
+}
+nav{
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/New-imdb-logo.png/800px-New-imdb-logo.png?20140815131316);
+background-repeat: no-repeat;
+background-size: 30vh;
+background-position: right;
+height: 20vh;
+
+}
+input {
+    overflow: hidden;
+    position: fixed;
+    font-size: 200%;
+    width: 80vw;
+    /* margin-left: 10%; */
+    border-radius: 5px;
+    border-style: outset;
+    height: 9vh;
+    background: linear-gradient(to left top, transparent, rgb(178, 179, 174));
+}
+img{
+    height: 80%;
+    width: 90%;
+    object-fit: cover;
+    margin-top: 10px;
+    border-radius: 3px;
+
+}
+.image {
+    padding: 0px;
+    margin: 2px;
+}
+
+
+.frame {
+    /* margin-top: 10%; */
+    display: grid;
+    width: 100vw;
+    grid-template-columns: repeat(5, 1fr);
+}
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap");
