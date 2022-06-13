@@ -1,5 +1,5 @@
 {
-  "name": "miniproj_w10d1",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5000",
