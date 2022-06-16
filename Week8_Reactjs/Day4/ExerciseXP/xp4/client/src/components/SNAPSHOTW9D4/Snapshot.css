@@ -1,0 +1,63 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: linear-gradient(217deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0) 70.71%),
+        linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+        linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%); */
+    background: linear-gradient(to right bottom, rgb(42, 106, 165), white);
+    font-family: "Dosis";
+}
+
+.searchinput {
+    width: 50vw;
+    margin-left: 10%;
+    border-radius: 5px;
+    border: 1px solid black;
+    background: linear-gradient(to left top ,transparent , rgb(201, 243, 31));
+
+}
+nav {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.subjects > input {
+    color: white;
+    font-family: "Dosis";
+    font-size: 1.2rem;
+    text-align: center;
+    border-radius: 5px;
+    /* background: linear-gradient(to right bottom, brown, rgb(157, 175, 157)); */
+    background: transparent;
+    text-transform: uppercase;
+    text-shadow: 1px 1px #666, 2px 2px #000;
+    cursor: pointer;
+}
+.gallery {
+    margin-top: 5%;
+    display: grid;
+    width: 80vw;
+    grid-template-columns: repeat(4, 1fr);
+    /* overflow: scroll; */
+    /* overflow-wrap: break-word; */
+}
+.image {
+    padding: 0px;
+    margin: 2px;
+}
+img {
+    height: 90%;
+    width: 100%;
+    object-fit: cover;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+p {
+    margin: 0px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap");
